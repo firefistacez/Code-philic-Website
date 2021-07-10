@@ -242,6 +242,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .hero{
+    padding: 100px 0;
+  }
   .hero__heading{
     font-size: 60px;
   }
@@ -428,6 +431,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .main{
+    padding: 0;
+  }
+
   .main__img--card {
     width: 250px;
     height: 250px;
@@ -632,6 +639,10 @@
   .fa-users,
   .fa-layer-group {
     font-size: 7rem;
+  }
+
+  .card-bottom{
+    display: none;
   }
 }
 

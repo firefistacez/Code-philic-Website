@@ -18,17 +18,16 @@ async function getVideo(){
   let videoId;
   let video = 'video';
   let title;
-  let src;
+  let j=0;
   for(let i=0;i<4;i++){
     videoId = data.items[i].id['videoId'];
     title = data.items[i].snippet['title'];
     if(videoId!=null){  
-      document.getElementById(video+i.toString()).src = "https://www.youtube.com/embed/" + videoId;
-      document.getElementById('title'+i.toString()).innerHTML = title;
-      document.getElementById('link'+i.toString()).href = "https://youtu.be/"+videoId;
-    } else {
-      i-=1;
-    }
+      document.getElementById(video+j.toString()).src = "https://www.youtube.com/embed/" + videoId;
+      document.getElementById('title'+j.toString()).innerHTML = title;
+      document.getElementById('link'+j.toString()).href = "https://youtu.be/"+videoId;
+      j+=1;
+    } 
   }
 
 }

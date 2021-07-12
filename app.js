@@ -26,6 +26,8 @@ async function getVideo(){
       document.getElementById(video+i.toString()).src = "https://www.youtube.com/embed/" + videoId;
       document.getElementById('title'+i.toString()).innerHTML = title;
       document.getElementById('link'+i.toString()).href = "https://youtu.be/"+videoId;
+    } else {
+      i-=1;
     }
   }
 

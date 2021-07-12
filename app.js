@@ -11,7 +11,7 @@ const mobileMenu = () => {
 menu.addEventListener('click', mobileMenu);
 
 // YouTube API for video cards
-const api_url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyAdDnWx6tZT9Pfq7GqiDLR_5oTLv0xC3w4&channelId=UCp2YSmdYn8afwFrJvZjiIQA&part=snippet,id&order=date&maxResults=4'
+const api_url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyAdDnWx6tZT9Pfq7GqiDLR_5oTLv0xC3w4&channelId=UCp2YSmdYn8afwFrJvZjiIQA&part=snippet,id&order=date&maxResults=20'
 async function getVideo(){
   const response = await fetch(api_url);
   const data = await response.json();
@@ -19,15 +19,17 @@ async function getVideo(){
   let video = 'video';
   let title;
   let j=0;
-  for(let i=0;i<4;i++){
-    videoId = data.items[i].id['videoId'];
-    title = data.items[i].snippet['title'];
-    if(videoId!=null){  
-      document.getElementById(video+j.toString()).src = "https://www.youtube.com/embed/" + videoId;
-      document.getElementById('title'+j.toString()).innerHTML = title;
-      document.getElementById('link'+j.toString()).href = "https://youtu.be/"+videoId;
-      j+=1;
-    } 
+  while(j<5){
+    for(let i=0;i<4;i++){
+      videoId = data.items[i].id['videoId'];
+      title = data.items[i].snippet['title'];
+      if(videoId!=null){  
+        document.getElementById(video+j.toString()).src = "https://www.youtube.com/embed/" + videoId;
+        document.getElementById('title'+j.toString()).innerHTML = title;
+        document.getElementById('link'+j.toString()).href = "https://youtu.be/"+videoId;
+        j+=1;
+      } 
+    }
   }
 
 }

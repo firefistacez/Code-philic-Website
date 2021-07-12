@@ -11,7 +11,8 @@ const mobileMenu = () => {
 menu.addEventListener('click', mobileMenu);
 
 // YouTube API for video cards
-const api_url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyAdDnWx6tZT9Pfq7GqiDLR_5oTLv0xC3w4&channelId=UCp2YSmdYn8afwFrJvZjiIQA&part=snippet,id&order=date&maxResults=20'
+const number=50;
+const api_url = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyAdDnWx6tZT9Pfq7GqiDLR_5oTLv0xC3w4&channelId=UCp2YSmdYn8afwFrJvZjiIQA&part=snippet,id&order=date&maxResults=${number}`
 async function getVideo(){
   const response = await fetch(api_url);
   const data = await response.json();
@@ -20,7 +21,7 @@ async function getVideo(){
   let title;
   let j=0;
   while(j<4){
-    for(let i=0;i<20;i++){
+    for(let i=0;i<number;i++){
       videoId = data.items[i].id['videoId'];
       title = data.items[i].snippet['title'];
       if(videoId!=null){  

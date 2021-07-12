@@ -19,8 +19,8 @@ async function getVideo(){
   let video = 'video';
   let title;
   let j=0;
-  while(j<5){
-    for(let i=0;i<4;i++){
+  while(j<4){
+    for(let i=0;i<20;i++){
       videoId = data.items[i].id['videoId'];
       title = data.items[i].snippet['title'];
       if(videoId!=null){  
